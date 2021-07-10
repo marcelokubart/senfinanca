@@ -1,12 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import {Link} from "react-router-dom";
 import iconeEdit from '../../assets/img/icon-edit.svg'
 import iconDelete from '../../assets/img/icon-delete.svg'
-import {exibeMovimentacoes} from '../../api/Movimentacoes'
+import {exibeMovimentacoes, deletaMovimentacao, exibeSaldo} from '../../api/Movimentacoes'
 import ImageFilter from '../ImageFilter'
 import Valor from '../Valor'
 
 const ListaMovimentacoes = () => {
   const [movimentacoes, setMovimentacoes] = useState(exibeMovimentacoes())
+
+  function handleDelete(id){
+    deletaMovimentacao(id)
+    setMovimentacoes(exibeMovimentacoes())
+  }
+
   return(
     <ul className="movimentacoes-panel__list">
       {movimentacoes.map((movimentacao, index) => (
@@ -21,8 +28,13 @@ const ListaMovimentacoes = () => {
           </div>
           <Valor tipo={movimentacao.tipo} valor={movimentacao.valor} />
           <span className="movimentacoes-panel__list__item__actions">
-            <a href={`/editar?id=${index}`} className="movivencoes-panel__list__item__actions__button"><img src={iconeEdit} alt="Editar" /></a>
-            <a href="#" className="movivencoes-panel__list__item__actions__button"><img src={iconDelete} alt="Excluir" /></a>
+            <Link to={`/editar/${index}`} className="movivencoes-panel__list__item__actions__button"><img src={iconeEdit} alt="Editar" /></Link>
+            <a href="#"
+              className="movivencoes-panel__list__item__actions__button"
+              onClick={(event) =>{
+                  handleDelete(event.target.dataset.id)
+                }
+              }><img src={iconDelete} alt="Excluir" data-id={index} /></a>
           </span>
         </li>
       ))

@@ -9,6 +9,7 @@ import './assets/css/style.css'
 import Header from './components/Header'
 import Home from './components/Home'
 import Cadastro from './components/Cadastro'
+import Edicao from './components/Edicao'
 import Error404 from './components/Error404'
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/cadastro">
           <Cadastro insereMovimentacao={insereMovimentacao} />
+        </Route>
+        <Route path="/editar/:id">
+          <Edicao />
         </Route>
         <Route>
           <Error404 />
