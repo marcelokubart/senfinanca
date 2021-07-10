@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# SenFinança
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a ReactJS App.
+
+It is an application for finance control.
+Its features are:
+- Transaction Inclusion
+- Change/Deletion of Transaction
+- Balance
+- Statement
+- Filters
 
 ## Available Scripts
 
