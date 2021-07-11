@@ -47,7 +47,7 @@ const Cadastro = () => {
                 setCategoria(event.target.value)
               }}>
               <option value="Alimentação">Alimentação</option>
-              <option value="Benefício">Benefício</option>
+              <option value="Benefícios">Benefícios</option>
               <option value="Moradia">Moradia</option>
               <option value="Renda">Renda</option>
               <option value="Saúde">Saúde</option>
