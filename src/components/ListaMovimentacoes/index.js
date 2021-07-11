@@ -1,20 +1,23 @@
-import React, {useState, useEffect} from 'react'
-import {useSaldo} from '../../context/Saldo'
+import React, {useEffect} from 'react'
+import {useSaldo, useMovimentacoes} from '../../context/Movimentacoes'
 import {Link} from "react-router-dom";
 import iconeEdit from '../../assets/img/icon-edit.svg'
 import iconDelete from '../../assets/img/icon-delete.svg'
-import {exibeMovimentacoes, deletaMovimentacao, exibeSaldo} from '../../api/Movimentacoes'
+import {deletaMovimentacao} from '../../api/Movimentacoes'
 import ImageFilter from '../ImageFilter'
 import Valor from '../Valor'
 
 const ListaMovimentacoes = () => {
-  const [movimentacoes, setMovimentacoes] = useState(exibeMovimentacoes())
-
+  const {movimentacoes, setMovimentacoes, atualizaMovimentacoes} = useMovimentacoes();
   const {atualizaSaldo} = useSaldo();
+
+  useEffect(() => {
+    atualizaMovimentacoes()
+  }, [movimentacoes])
 
   function handleDelete(id){
     deletaMovimentacao(id)
-    setMovimentacoes(exibeMovimentacoes())
+    atualizaMovimentacoes()
     atualizaSaldo()
   }
 

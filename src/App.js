@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import './api/Tipos'
-import {insereMovimentacao} from './api/Movimentacoes'
-import SaldoProvider from './context/Saldo'
+import MovimentacoesProvider from './context/Movimentacoes'
 
 import './assets/css/reset.css'
 import './assets/css/style.css'
@@ -15,7 +14,7 @@ import Error404 from './components/Error404'
 
 function App() {
   return (
-    <SaldoProvider>
+    <MovimentacoesProvider>
       <Router>
         <Header />
         <Switch>
@@ -23,7 +22,7 @@ function App() {
             <Home />
           </Route>
           <Route exact path="/cadastro">
-            <Cadastro insereMovimentacao={insereMovimentacao} />
+            <Cadastro />
           </Route>
           <Route path="/editar/:id">
             <Edicao />
@@ -33,7 +32,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </SaldoProvider>
+    </MovimentacoesProvider>
   );
 }
 

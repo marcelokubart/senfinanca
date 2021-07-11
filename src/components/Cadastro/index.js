@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
+import {insereMovimentacao} from '../../api/Movimentacoes'
 import CurrencyInput from 'react-currency-masked-input'
 
-const Cadastro = ({insereMovimentacao}) => {
+const Cadastro = () => {
   const [tipo, setTipo] = useState('Entrada')
   const [categoria, setCategoria] = useState('Alimentação')
   const [titulo, setTitulo] = useState('')

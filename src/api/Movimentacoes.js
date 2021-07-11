@@ -26,7 +26,6 @@ export function exibeMovimentacao(id){
 }
 
 export function editaMovimentacao(id, data, tipo, categoria, titulo, valor){
-  console.log(id);
   const movimentacoes = JSON.parse(localStorage.getItem('movimentacoes'))
   movimentacoes[id] = {data, tipo, categoria, titulo, valor}
 
