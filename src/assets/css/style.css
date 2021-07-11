@@ -154,13 +154,17 @@ body{
   font-weight: 700;
 }
 
+.movimentacoes-panel__filter__label{
+  display: inline-block;
+  margin-left: 10px;
+}
 .movimentacoes-panel__filter__select{
   background: #f6f6f6;
   border: 0;
   border-radius: 10px;
   color: #16A085;
   font-size: 1.05rem;
-  margin-left: 10px;
+  margin-left: 2px;
   padding: 5px;
 }
 
@@ -312,6 +316,10 @@ body{
     margin-bottom: 30px;
   }
 
+  .box__title{
+    font-size: 1.25rem
+  }
+
   .panel{
     background: #fff;
     border: 1px solid #eee;
@@ -324,7 +332,7 @@ body{
     align-items: flex-start;
   }
 
-  .movimentacoes-panel__filter__select{
+  .movimentacoes-panel__filter__label{
     margin-top: 10px;
     margin-left: 0;
   }
@@ -341,4 +349,6 @@ body{
     margin: 2px 0;
     width: 100%;
   }
+
+
 }

@@ -33,7 +33,7 @@ const Cadastro = () => {
               value={tipo}
               onChange = {(event) => {
                 setTipo(event.target.value)
-              }}>>
+              }}>
               <option value="Entrada">Entrada</option>
               <option value="Saída">Saída</option>
             </select>

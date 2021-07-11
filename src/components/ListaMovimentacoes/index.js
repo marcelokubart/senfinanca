@@ -13,7 +13,7 @@ const ListaMovimentacoes = () => {
 
   useEffect(() => {
     atualizaMovimentacoes()
-  }, [movimentacoes])
+  }, [])
 
   function handleDelete(id){
     deletaMovimentacao(id)

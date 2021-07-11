@@ -15,9 +15,35 @@ export function insereMovimentacao(data, tipo, categoria, titulo, valor){
   localStorage.setItem('movimentacoes', JSON.stringify(tarefasAtualizadas))
 }
 
-export function exibeMovimentacoes(){
+export function exibeMovimentacoes(tipo, categoria){
   const movimentacoes = JSON.parse(localStorage.getItem('movimentacoes')) || []
-  return movimentacoes
+  let movimentacoesFiltradas = []
+
+  if ((!tipo && !categoria) || (tipo === 'Todas' && categoria === 'Todas')){
+    return movimentacoes
+  }
+  else{
+    if(tipo !== 'Todas' && categoria === 'Todas'){
+      console.log('entrei');
+      movimentacoes.forEach((movimentacao) => {
+        if(movimentacao.tipo === tipo)
+        movimentacoesFiltradas.push(movimentacao)
+      })
+    }
+    else if(categoria !== 'Todas' && tipo === 'Todas'){
+      movimentacoes.forEach((movimentacao) => {
+        if(movimentacao.categoria === categoria)
+        movimentacoesFiltradas.push(movimentacao)
+      })
+    }
+    else(
+      movimentacoes.forEach((movimentacao) => {
+        if(movimentacao.categoria === categoria && movimentacao.tipo === tipo)
+          movimentacoesFiltradas.push(movimentacao)
+      })
+    )
+    return movimentacoesFiltradas
+  }
 }
 
 export function exibeMovimentacao(id){
