@@ -1,6 +1,5 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import './api/Tipos'
 import MovimentacoesProvider from './context/Movimentacoes'
 
 import './assets/css/reset.css'
