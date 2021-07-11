@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {useSaldo} from '../../context/Saldo'
 import {Link} from "react-router-dom";
 import iconeEdit from '../../assets/img/icon-edit.svg'
 import iconDelete from '../../assets/img/icon-delete.svg'
@@ -9,9 +10,12 @@ import Valor from '../Valor'
 const ListaMovimentacoes = () => {
   const [movimentacoes, setMovimentacoes] = useState(exibeMovimentacoes())
 
+  const {atualizaSaldo} = useSaldo();
+
   function handleDelete(id){
     deletaMovimentacao(id)
     setMovimentacoes(exibeMovimentacoes())
+    atualizaSaldo()
   }
 
   return(

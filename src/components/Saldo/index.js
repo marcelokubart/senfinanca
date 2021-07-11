@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {exibeSaldo} from '../../api/Movimentacoes'
+import {useSaldo} from '../../context/Saldo'
 
 const Saldo = () => {
-  const [saldo, setSaldo] = useState(exibeSaldo())
+  const {saldo}  = useSaldo()
   return (
     <section className="box saldo">
       <h2 className='box__title box_title--saldo'>Saldo</h2>
