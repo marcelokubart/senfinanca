@@ -4,7 +4,7 @@ import Movimentacoes from '../Movimentacoes'
 
 const Home = () => {
   return(
-    <main class="content principal">
+    <main className="content principal">
       <Saldo />
       <Movimentacoes />
     </main>
